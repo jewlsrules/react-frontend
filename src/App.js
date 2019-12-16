@@ -57,7 +57,8 @@ class App extends React.Component {
           company_name: data.company_name,
           job_title: data.job_title,
           job_link: data.job_link,
-          app_status: data.app_status
+          app_status: data.app_status,
+          id: data.id
         }
         break
       default:

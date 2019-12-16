@@ -32,6 +32,7 @@ class Main extends React.Component {
 // HANDLERS/FUNCTIONS
 // =============================
   handleCreate = (createData) => {
+    console.log('creating new application')
     fetch(`${baseUrl}/applications`, {
       body: JSON.stringify(createData),
       method: 'POST',
@@ -51,9 +52,10 @@ class Main extends React.Component {
       })
     })
     .catch(err=>console.log(err))
-  }
+  } //end of handleCreate
 
   handleUpdate = (updateData) => {
+    console.log('updating application')
     fetch(`${baseUrl}/applications/${updateData.id}`, {
       body: JSON.stringify(updateData),
       method: 'PUT',
@@ -67,11 +69,25 @@ class Main extends React.Component {
       this.fetchPosts()
     })
     .catch(err=>console.log(err))
-  }
+  } // end of handle update
 
-  handleDelete = () => {
-    console.log('deleted')
-  }
+  handleDelete = (id) => {
+    console.log('Deleting Application')
+    fetch(`${baseUrl}/applications/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(json => {
+      this.setState(prevState => {
+        const applications = prevState.applications.filter(post=> post.id !== id)
+        return {applications}
+      })
+    })
+    .catch(err=>console.log('deleting error: ',err))
+  } // end of handle delete
 
   // this will pull all applications from our API
   fetchPosts = () => {
@@ -82,7 +98,7 @@ class Main extends React.Component {
           applications: jData
         })
       }).catch(err=>console.log('fetch error: ', err))
-    }
+    } // end of fetch posts
 
   componentDidMount(){ // this will only run once right after page load, built in function - you don't need to bind this method.
     this.fetchPosts()
@@ -103,7 +119,7 @@ class Main extends React.Component {
             key={appData.id}
             data={appData}
             handleView={this.props.handleView}
-            handleDelete={this.props.handleDelete}
+            handleDelete={this.handleDelete}
           />
         ))
         : <Form
