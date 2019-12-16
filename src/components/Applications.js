@@ -7,13 +7,12 @@ import React from 'react'
 // =============================
 // COMPONENT CLASS
 // =============================
+
 class Applications extends React.Component {
 
 // =============================
 // HANDLERS/FUNCTIONS
 // =============================
-
-//do we need a handleView and handleDelete? I think we're supposed to pull those in
 
   // ==============
   // RENDER
