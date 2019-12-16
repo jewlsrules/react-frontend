@@ -10,11 +10,11 @@ import Applications from './Applications.js'
 
 // this is setting the URL, by default the app doesn't look for the right URL, so this is telling it where to go.
 let baseUrl = '';
-if (process.env.NODE_ENV === 'development') {
-  baseUrl = 'https://damp-badlands-51088.herokuapp.com/api'
-} else {
-  baseUrl = 'https://damp-badlands-51088.herokuapp.com/api' // heroku code will go in the else statement
-}
+// if (process.env.NODE_ENV === 'development') {
+//   baseUrl = 'localhost:8888/applications'
+// } else {
+  baseUrl = 'http://localhost:8888/' // heroku code will go in the else statement
+// }
 
 // =============================
 // COMPONENT CLASS
@@ -91,7 +91,7 @@ class Main extends React.Component {
 
   // this will pull all applications from our API
   fetchPosts = () => {
-      fetch('https://damp-badlands-51088.herokuapp.com/api/applications')
+      fetch(`${baseUrl}/applications`)
       .then(data => data.json())
       .then(jData => {
         this.setState({

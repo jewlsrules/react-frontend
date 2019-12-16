@@ -32,6 +32,7 @@ handleChange = (event) => {
 //  this will handle creating and updating new job app.
 handleSubmit = (event) => {
   event.preventDefault()
+  console.log('hi');
   if (this.props.view.page === 'addApplication') {
     this.props.handleCreate(this.state)
   } else if (this.props.view.page === 'editApplication') {
