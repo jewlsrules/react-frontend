@@ -31,8 +31,26 @@ class Main extends React.Component {
 // =============================
 // HANDLERS/FUNCTIONS
 // =============================
-  handleCreate = () => {
-    console.log('created')
+  handleCreate = (createData) => {
+    fetch(`${baseUrl}/applications`, {
+      body: JSON.stringify(createData),
+      method: 'POST',
+      headers: { // these will always be this way
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(createdApp => {
+      return createdApp.json()
+    })
+    .then(jsonedApp => {
+      this.props.handleView('home')
+      this.setState(prevState => {
+        prevState.applications = jsonedApp
+        return { applications: prevState.applications }
+      })
+    })
+    .catch(err=>console.log(err))
   }
 
   handleUpdate = () => {

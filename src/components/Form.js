@@ -27,7 +27,7 @@ class Form extends React.Component {
 //  this handles when the form changes
 handleChange = (event) => {
   this.setState({[event.target.id]:event.target.value})
-}// closing for handleChange
+} // closing for handleChange
 
 //  this will handle creating and updating new job app.
 handleSubmit = (event) => {
