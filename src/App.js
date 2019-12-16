@@ -21,17 +21,17 @@ class App extends React.Component {
         page: 'home',
       },
       formInputs: {
-        companyName: null,
-        jobTitle: null,
-        jobLink: null,
-        appStatus: null
+        company_name: null,
+        job_title: null,
+        job_link: null,
+        app_status: null
       }
     }
   } // closing for constructor
 
 //need this to manage formInput and page views
   handleView = (view, data) => {
-    console.log('handling')
+    console.log('handling');
     let formInputs = {
       name: '',
       image: '',

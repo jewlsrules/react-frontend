@@ -33,7 +33,8 @@ class Applications extends React.Component {
         <div className="app-buttons">
 
           <ul>
-            <li>edit application</li>
+            <li onClick ={()=>{
+              this.props.handleView('editApplication', this.props.data)}}>edit application</li>
             <li>delete</li>
           </ul>
         </div>
@@ -43,14 +44,6 @@ class Applications extends React.Component {
   }
 }
 
-// TO USE AFTER WE FIGURE OUT THE DATA:
-
-// <ul>
-//   <li onClick={()=>
-//   {this.props.handleView('edit', this.props.data)}}>edit application</li>
-//   <li onClick={()=>
-//   {this.props.handleDelete(this.props.data.id)}}>delete</li>
-// </ul>
 
 // =============================
 // EXPORT

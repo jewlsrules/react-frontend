@@ -11,7 +11,7 @@ import Applications from './Applications.js'
 // this is setting the URL, by default the app doesn't look for the right URL, so this is telling it where to go.
 let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
-  baseUrl = 'http://localhost:8888'
+  baseUrl = 'https://damp-badlands-51088.herokuapp.com/api'
 } else {
   baseUrl = 'https://damp-badlands-51088.herokuapp.com/api' // heroku code will go in the else statement
 }
@@ -41,7 +41,7 @@ class Main extends React.Component {
       }
     })
     .then(createdApp => {
-      return createdApp.json()
+      return createdApp.json() // this is returning an error right now, not sure why.
     })
     .then(jsonedApp => {
       this.props.handleView('home')
@@ -53,8 +53,20 @@ class Main extends React.Component {
     .catch(err=>console.log(err))
   }
 
-  handleUpdate = () => {
-    console.log('updated')
+  handleUpdate = (updateData) => {
+    fetch(`${baseUrl}/applications/${updateData.id}`, {
+      body: JSON.stringify(updateData),
+      method: 'PUT',
+      headers: { // these will always be this way
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(updatedPost => {
+      this.props.handleView('home')
+      this.fetchPosts()
+    })
+    .catch(err=>console.log(err))
   }
 
   handleDelete = () => {

@@ -12,11 +12,11 @@ class Form extends React.Component {
     super()
     this.state = {
       id: null, //need this for update
-      user: '',
-      companyName: '',
-      jobTitle: '',
-      jobLink: '',
-      appStatus: ''
+      user_id: '',
+      company_name: '',
+      job_title: '',
+      job_link: '',
+      app_status: ''
     } //  closing for state
   } //  closing for constructor
 
@@ -32,18 +32,22 @@ handleChange = (event) => {
 //  this will handle creating and updating new job app.
 handleSubmit = (event) => {
   event.preventDefault()
-  console.log('submitted')
+  if (this.props.view.page === 'addApplication') {
+    this.props.handleCreate(this.state)
+  } else if (this.props.view.page === 'editApplication') {
+    this.props.handleUpdate(this.state)
+  }
 } //  closing for handleSubmit
 
 //  this will set state after form is loaded to populate pre-values/data in fields for editing/updating
 componentDidMount() {
   this.setState({
-    // id: this.props.formInput.id,
-    // user: this.props.formInput.user,
-    // companyName: this.props.formInput.companyName,
-    // jobTitle: this.props.formInput.jobTitle,
-    // jobLink: this.props.formInput.jobLink,
-    // appStatus: this.props.formInput.appStatus
+    id: this.props.formInputs.id,
+    user_id: this.props.formInputs.user_id,
+    company_name: this.props.formInputs.company_name,
+    job_title: this.props.formInputs.job_title,
+    job_link: this.props.formInputs.job_link,
+    app_status: this.props.formInputs.app_status
   })
 }  // closing for componentDidMount
 
@@ -54,21 +58,23 @@ componentDidMount() {
     return (
       <div>
         <h1>this is the form component</h1>
+        <h2>type of form: {this.props.view.page} </h2>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor='user'>user</label>
-          <input type='text' value={this.state.user} id='user' onChange={this.handleChange}/>
 
-          <label htmlFor='companyName'>company name</label>
-          <input type='text' value={this.state.companyName} id='cmpanyName' onChange={this.handleChange}/>
+          <label htmlFor='user_id'>User ID: </label>
+          <input type='text' value={this.state.user_id} id='user_id' onChange={this.handleChange}/>
 
-          <label htmlFor='jobTitle'>job title</label>
-          <input type='text' value={this.state.jobTitle} id='jobTitle' onChange={this.handleChange}/>
+          <label htmlFor='company_name'>Company: </label>
+          <input type='text' value={this.state.company_name} id='company_name' onChange={this.handleChange}/>
 
-          <label htmlFor='jobLink'>job link</label>
-          <input type='text' value={this.state.jobLink} id='jobLink' onChange={this.handleChange}/>
+          <label htmlFor='job_title'>Job Title: </label>
+          <input type='text' value={this.state.job_title} id='job_title' onChange={this.handleChange}/>
 
-          <label htmlFor='appStatus'>app status</label>
-          <input type='text' value={this.state.appStatus} id='appStatus' onChange={this.handleChange}/>
+          <label htmlFor='job_link'>Link to Posting: </label>
+          <input type='text' value={this.state.job_link} id='job_link' onChange={this.handleChange}/>
+
+          <label htmlFor='app_status'>Status: </label>
+          <input type='text' value={this.state.app_status} id='app_status' onChange={this.handleChange}/>
 
           <input type="submit" value="Submit"/>
         </form>
