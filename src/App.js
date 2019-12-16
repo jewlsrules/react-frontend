@@ -21,6 +21,7 @@ class App extends React.Component {
         page: 'home',
       },
       formInputs: {
+        user_id: null,
         company_name: null,
         job_title: null,
         job_link: null,
@@ -32,32 +33,37 @@ class App extends React.Component {
 //need this to manage formInput and page views
   handleView = (view, data) => {
     console.log('handling');
+    let pageTitle = ''
     let formInputs = {
-      name: '',
-      image: '',
-      body: '',
+      user_id: '',
+      company_name: '',
+      job_title: '',
+      job_link: '',
+      app_status: '',
       id: null
     }
     // show the page title depending on the page:
-    // switch(view) {
-    //   case 'home':
-    //     pageTitle = 'View Your Applications'
-    //     break
-    //   case 'addApplication':
-    //     pageTitle = 'Track a New Application'
-    //     break
-    //   case 'editApplication':
-    //     pageTitle = 'Update Application'
-        // formInputs = {
-        //   companyName: postData.companyName,
-        //   jobTitle: postData.companyTitle,
-        //   jobLink: postData.jobLink,
-        //   appStatus: postData.appStatus
-        // }
-    //     break
-    //   default:
-    //     break
-    // }
+    switch(view) {
+      case 'home':
+        pageTitle = 'View Your Applications'
+        break
+      case 'addApplication':
+        pageTitle = 'Track a New Application'
+        break
+      case 'editApplication':
+        pageTitle = 'Update Application'
+        formInputs = {
+          user_id: data.user_id,
+          company_name: data.company_name,
+          job_title: data.job_title,
+          job_link: data.job_link,
+          app_status: data.app_status,
+          id: data.id
+        }
+        break
+      default:
+        break
+    }
     this.setState({
       view: {
         page: view,
