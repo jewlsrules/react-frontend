@@ -7,6 +7,7 @@ import './App.css';
 
 // components
 import Main from './components/Main.js'
+import Menu from './components/Menu.js'
 
 // =============================
 // COMPONENT CLASS
@@ -21,28 +22,25 @@ class App extends React.Component {
         page: 'home',
       },
       formInputs: {
-        user_id: null,
-        company_name: null,
-        job_title: null,
-        job_link: null,
-        app_status: null
+        companyName: null,
+        jobTitle: null,
+        jobLink: null,
+        appStatus: null
       }
     }
   } // closing for constructor
 
 //need this to manage formInput and page views
   handleView = (view, data) => {
-    console.log('handling');
+    console.log('handling')
     let pageTitle = ''
     let formInputs = {
-      user_id: '',
-      company_name: '',
-      job_title: '',
-      job_link: '',
-      app_status: '',
+      name: '',
+      image: '',
+      body: '',
       id: null
     }
-    // show the page title depending on the page:
+    //show the page title depending on the page:
     switch(view) {
       case 'home':
         pageTitle = 'View Your Applications'
@@ -53,12 +51,10 @@ class App extends React.Component {
       case 'editApplication':
         pageTitle = 'Update Application'
         formInputs = {
-          user_id: data.user_id,
-          company_name: data.company_name,
-          job_title: data.job_title,
-          job_link: data.job_link,
-          app_status: data.app_status,
-          id: data.id
+          companyName: data.companyName,
+          jobTitle: data.companyTitle,
+          jobLink: data.jobLink,
+          appStatus: data.appStatus
         }
         break
       default:
@@ -67,32 +63,33 @@ class App extends React.Component {
     this.setState({
       view: {
         page: view,
+        pageTitle: pageTitle
       },
       formInputs: formInputs
     })
   } //  closing for handleView
-
 
 // ==============
 // RENDER
 // ==============
   render () {
     return (
-      <div className='container'>
-        <h1>Job Application Tracker</h1>
-        <nav>
-          <h3 onClick= {()=>{
-            this.handleView('home')}}>Applications</h3>
-          <h3 onClick ={()=>{
-            this.handleView('addApplication')}}>Add New Application</h3>
-          <Main
-            view={this.state.view}
-            handleView={this.handleView}
-            formInputs={this.state.formInputs}
-          />
-        </nav>
-        <footer>Created for GA by <a href='https://github.com/ashbrick'>Ashley Brickhouse</a> and <a href='https://github.com/jewlsrules'>Jewls Krueger</a>
-        </footer>
+      <div className='page-container'>
+        <div id='content-wrap'>
+
+          <h1>Job Application Tracker</h1>
+
+          <Menu/>
+
+            <Main
+              view={this.state.view}
+              handleView={this.handleView}
+              formInputs={this.state.formInputs}
+            />
+
+            <footer className='footer'>Created for GA by <a href='https://github.com/ashbrick'>Ashley Brickhouse</a> and <a href='https://github.com/jewlsrules'>Jewls Krueger</a>
+            </footer>
+        </div>
       </div>
     )
   }
