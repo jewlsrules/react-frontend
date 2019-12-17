@@ -25,15 +25,15 @@ class Applications extends React.Component {
 
           <div className="app-info">
 
-            <h3><strong>User Id:</strong> <span>{this.props.data.user_id}</span></h3>
+            <h3><strong>User Id:</strong> <span className="app-data">{this.props.data.user_id}</span></h3>
 
-              <h3><strong>Company:</strong><span> {this.props.data.company_name}</span></h3>
+              <h3><strong>Company:</strong><span className="app-data"> {this.props.data.company_name}</span></h3>
 
-              <h3><strong>Job Title:</strong><span> {this.props.data.job_title}</span></h3>
+              <h3><strong>Job Title:</strong><span className="app-data"> {this.props.data.job_title}</span></h3>
 
-              <h3><strong>Job Link:</strong><span> {this.props.data.job_link}</span></h3>
+              <h3><strong>Job Link:</strong><span className="app-data"> {this.props.data.job_link}</span></h3>
 
-              <h3><strong>Status:</strong><span> {this.props.data.app_status}</span></h3>
+              <h3><strong>Status:</strong><span className="app-data"> {this.props.data.app_status}</span></h3>
           </div>
 
           <div className="app-buttons">

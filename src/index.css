@@ -110,23 +110,34 @@ body {
 .applications-container {
   display: flex;
   flex-flow: column;
-  border: 1px solid black;
+  width: 66%;
+  border: 1px solid gray;
+  box-shadow: 5px 5px 5px gray;
+  margin: 2em;
+  background-color: var(--white);
 }
 .app-info {
   display: flex;
   flex-flow: column;
+  width: 100%;
 }
+
 .app-info h3 strong {
   font-family: oblique;
-  color: var(--crimson);
+  color: var(--dark-gray);
   font-size: 1.5em;
   margin-left: 20px;
 }
+
+.app-data {
+    /* background: #ECECEE; */
+    margin: 0;
+}
+
 .app-info h3 span {
-  background-color: var(--white);
-  padding: 5px 300px 5px 20px;
+  /* background-color: var(--white); */
+  /* padding: 5px 300px 5px 20px; */
   /* border: 1px solid gray; */
-  margin-left: 10px;
 }
 .app-buttons ul{
   display: inline-flex;
@@ -144,7 +155,7 @@ body {
   border-radius: 6px;
   margin-top: 10px;
   box-shadow: 2px 2px black;
-  margin-bottom: 90px;
+  /* margin-bottom: 90px; */
   margin-left: 60px;
 }
 
