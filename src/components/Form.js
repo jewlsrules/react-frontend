@@ -58,7 +58,6 @@ componentDidMount() {
   render () {
     return (
       <div className="form">
-        <h1>Add An Application to Track</h1>
         <form onSubmit={this.handleSubmit}>
 
           <label htmlFor='user_id'>User ID: </label>
