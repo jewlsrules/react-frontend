@@ -75,11 +75,14 @@ class App extends React.Component {
   render () {
     return (
       <div className='page-container'>
+
+        <Menu handleView={this.handleView}/>
+
         <div id='content-wrap'>
 
           <h1>Job Application Tracker</h1>
 
-          <Menu/>
+
 
             <Main
               view={this.state.view}
