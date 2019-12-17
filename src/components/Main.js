@@ -13,7 +13,7 @@ let baseUrl = '';
 // if (process.env.NODE_ENV === 'development') {
 //   baseUrl = 'localhost:8888/applications'
 // } else {
-  baseUrl = 'http://localhost:8888/' // heroku code will go in the else statement
+  baseUrl = 'https://damp-badlands-51088.herokuapp.com/api/' // heroku code will go in the else statement
 // }
 
 // =============================
