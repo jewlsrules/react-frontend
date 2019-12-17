@@ -23,9 +23,9 @@
 ==================*/
 body {
   height: 100%;
-  width: 98%;
-  margin: 0 auto;
-  padding: 10px 10px 10px 10px;
+  width: 100%;
+  margin: 0;
+  /* padding: 10px 10px 10px 10px; */
   /* position: relative; */
   min-height: 97vh;
   font-family: var(--second-font);
