@@ -63,19 +63,19 @@ componentDidMount() {
 
           <label htmlFor='user_id'>User ID: </label>
           <input type='text' value={this.state.user_id} id='user_id' onChange={this.handleChange}/>
-
+          <br />
           <label htmlFor='company_name'>Company: </label>
           <input type='text' value={this.state.company_name} id='company_name' onChange={this.handleChange}/>
-
+          <br />
           <label htmlFor='job_title'>Job Title: </label>
           <input type='text' value={this.state.job_title} id='job_title' onChange={this.handleChange}/>
-
+          <br />
           <label htmlFor='job_link'>Link to Posting: </label>
           <input type='text' value={this.state.job_link} id='job_link' onChange={this.handleChange}/>
-
+          <br />
           <label htmlFor='app_status'>Status: </label>
           <input type='text' value={this.state.app_status} id='app_status' onChange={this.handleChange}/>
-
+          <br />
           <input type="submit" value="Submit"/>
         </form>
       </div>
