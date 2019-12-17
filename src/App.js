@@ -82,8 +82,7 @@ class App extends React.Component {
   render () {
     return (
       <div className='page-container'>
-
-      <Header/>
+          <Header/>
 
         <div className='content-wrap'>
 

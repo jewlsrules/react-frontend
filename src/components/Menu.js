@@ -18,9 +18,9 @@ class Menu extends React.Component {
       <div className="menu">
         <ul>
           <li onClick={()=>
-          {this.props.handleView('home')}}>home</li>
+          {this.props.handleView('home')}}>View All Applications</li>
           <li onClick={()=>
-          {this.props.handleView('addApplication')}}>add application</li>
+          {this.props.handleView('addApplication')}}>Add New</li>
         </ul>
       </div>
 
