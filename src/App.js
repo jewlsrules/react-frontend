@@ -6,6 +6,7 @@ import React from 'react';
 import './App.css';
 
 // components
+import Header from './components/Header.js'
 import Main from './components/Main.js'
 import Menu from './components/Menu.js'
 
@@ -20,8 +21,9 @@ class App extends React.Component {
     this.state = {
       view: {
         page: 'home',
+        pageTitle: 'View Your Applications'
       },
-      formInputs: {
+      formInput: {
         companyName: null,
         jobTitle: null,
         jobLink: null,
@@ -34,7 +36,7 @@ class App extends React.Component {
   handleView = (view, data) => {
     console.log('handling')
     let pageTitle = ''
-    let formInputs = {
+    let formInput = {
       name: '',
       image: '',
       body: '',
@@ -50,7 +52,7 @@ class App extends React.Component {
         break
       case 'editApplication':
         pageTitle = 'Update Application'
-        formInputs = {
+        formInput = {
           companyName: data.companyName,
           jobTitle: data.companyTitle,
           jobLink: data.jobLink,
@@ -65,7 +67,7 @@ class App extends React.Component {
         page: view,
         pageTitle: pageTitle
       },
-      formInputs: formInputs
+      formInput: formInput
     })
   } //  closing for handleView
 
@@ -76,22 +78,20 @@ class App extends React.Component {
     return (
       <div className='page-container'>
 
-        <Menu handleView={this.handleView}/>
+      <Header/>
 
-        <div id='content-wrap'>
+        <div className='content-wrap'>
 
-          <h1>Job Application Tracker</h1>
+          <Menu handleView={this.handleView}/>
 
+          <Main
+            view={this.state.view}
+            handleView={this.handleView}
+            formInput={this.state.formInput}
+          />
 
-
-            <Main
-              view={this.state.view}
-              handleView={this.handleView}
-              formInputs={this.state.formInputs}
-            />
-
-            <footer className='footer'>Created for GA by <a href='https://github.com/ashbrick'>Ashley Brickhouse</a> and <a href='https://github.com/jewlsrules'>Jewls Krueger</a>
-            </footer>
+          <footer className='footer'>Created for GA by <a href='https://github.com/ashbrick'>Ashley Brickhouse</a> and <a href='https://github.com/jewlsrules'>Jewls Krueger</a>
+          </footer>
         </div>
       </div>
     )

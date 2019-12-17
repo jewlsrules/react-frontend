@@ -43,12 +43,12 @@ handleSubmit = (event) => {
 //  this will set state after form is loaded to populate pre-values/data in fields for editing/updating
 componentDidMount() {
   this.setState({
-    id: this.props.formInputs.id,
-    user_id: this.props.formInputs.user_id,
-    company_name: this.props.formInputs.company_name,
-    job_title: this.props.formInputs.job_title,
-    job_link: this.props.formInputs.job_link,
-    app_status: this.props.formInputs.app_status
+    id: this.props.formInput.id,
+    user_id: this.props.formInput.user_id,
+    company_name: this.props.formInput.company_name,
+    job_title: this.props.formInput.job_title,
+    job_link: this.props.formInput.job_link,
+    app_status: this.props.formInput.app_status
   })
 }  // closing for componentDidMount
 
@@ -57,8 +57,8 @@ componentDidMount() {
 // ==============
   render () {
     return (
-      <div>
-        <h1>this is the form component</h1>
+      <div className="form">
+        <h1>Track An App...</h1>
         <h2>type of form: {this.props.view.page} </h2>
         <form onSubmit={this.handleSubmit}>
 
