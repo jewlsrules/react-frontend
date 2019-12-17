@@ -27,11 +27,11 @@ class Applications extends React.Component {
 
             <h3><strong>User Id:</strong> <span className="app-data">{this.props.data.user_id}</span></h3>
 
+            <h3><strong>Job Title:</strong><span className="app-data"> {this.props.data.job_title}</span></h3>
+
               <h3><strong>Company:</strong><span className="app-data"> {this.props.data.company_name}</span></h3>
 
-              <h3><strong>Job Title:</strong><span className="app-data"> {this.props.data.job_title}</span></h3>
-
-              <h3><strong>Job Link:</strong><span className="app-data"> {this.props.data.job_link}</span></h3>
+              <h3><strong>Job Link:</strong><span className="app-data"> <a href={this.props.data.job_link}>{this.props.data.job_link}</a></span></h3>
 
               <h3><strong>Status:</strong><span className="app-data"> {this.props.data.app_status}</span></h3>
           </div>
