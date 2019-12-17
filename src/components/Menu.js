@@ -20,7 +20,7 @@ class Menu extends React.Component {
           <li onClick={()=>
           {this.props.handleView('home')}}>home</li>
           <li onClick={()=>
-          {this.props.handleView('addApp')}}>add application</li>
+          {this.props.handleView('addApplication')}}>add application</li>
         </ul>
       </div>
 

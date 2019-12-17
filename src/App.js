@@ -6,6 +6,7 @@ import React from 'react';
 import './App.css';
 
 // components
+import Header from './components/Header.js'
 import Main from './components/Main.js'
 import Menu from './components/Menu.js'
 
@@ -20,8 +21,9 @@ class App extends React.Component {
     this.state = {
       view: {
         page: 'home',
+        pageTitle: 'View Your Applications'
       },
-      formInputs: {
+      formInput: {
         companyName: null,
         jobTitle: null,
         jobLink: null,
@@ -34,7 +36,7 @@ class App extends React.Component {
   handleView = (view, data) => {
     console.log('handling')
     let pageTitle = ''
-    let formInputs = {
+    let formInput = {
       name: '',
       image: '',
       body: '',
@@ -50,11 +52,11 @@ class App extends React.Component {
         break
       case 'editApplication':
         pageTitle = 'Update Application'
-        formInputs = {
-          companyName: data.companyName,
-          jobTitle: data.companyTitle,
-          jobLink: data.jobLink,
-          appStatus: data.appStatus
+        formInput = {
+          company_name: data.company_name,
+          job_title: data.company_title,
+          job_link: data.job_link,
+          app_status: data.app_status
         }
         break
       default:
@@ -65,7 +67,7 @@ class App extends React.Component {
         page: view,
         pageTitle: pageTitle
       },
-      formInputs: formInputs
+      formInput: formInput
     })
   } //  closing for handleView
 
@@ -75,20 +77,21 @@ class App extends React.Component {
   render () {
     return (
       <div className='page-container'>
-        <div id='content-wrap'>
 
-          <h1>Job Application Tracker</h1>
+      <Header/>
 
-          <Menu/>
+        <div className='content-wrap'>
 
-            <Main
-              view={this.state.view}
-              handleView={this.handleView}
-              formInputs={this.state.formInputs}
-            />
+          <Menu handleView={this.handleView}/>
 
-            <footer className='footer'>Created for GA by <a href='https://github.com/ashbrick'>Ashley Brickhouse</a> and <a href='https://github.com/jewlsrules'>Jewls Krueger</a>
-            </footer>
+          <Main
+            view={this.state.view}
+            handleView={this.handleView}
+            formInput={this.state.formInput}
+          />
+
+          <footer className='footer'>Created for GA by <a href='https://github.com/ashbrick'>Ashley Brickhouse</a> and <a href='https://github.com/jewlsrules'>Jewls Krueger</a>
+          </footer>
         </div>
       </div>
     )

@@ -28,26 +28,27 @@ body {
   padding: 10px 10px 10px 10px;
   /* position: relative; */
   min-height: 97vh;
+  font-family: var(--second-font);
 }
 
 /*=================
   CONTAINER DIV
 ==================*/
-h1 {
+.header {
   font-family: var(--title-font);
   color: var(--crimson);
   text-align: center;
-  padding: 5%;
+  padding: 0;
   margin: 0 auto;
-  height: 5%;
+  height: 3%;
   width: 100%;
   min-width: 750px;
-  font-size: 5vw;
+  font-size: 3vw;
 }
 .page-container {
   position: relative;
   display: flex;
-  /* background-image: url(./images/desk.png); */
+  background-image: url(./images/desk.jpg);
   /* background-size: auto 100;
   background-repeat: no-repeat;
   background-position: center; */
@@ -60,7 +61,7 @@ h1 {
   min-height: 100vh;
   width: 100vw;
 }
-#content-wrap {
+.content-wrap {
   padding-bottom: 2.5em;
 }
 
@@ -68,19 +69,128 @@ h1 {
       MENU
 ==================*/
 .menu {
-  display: inline-block;
-  justify-content: space-around;
-  flex-flow: row;
+  text-align: center;
+  width: 100%;
 }
 .menu ul {
   list-style-type: none;
   padding: 0;
 }
 .menu li {
-  justify-content: space-around;
-  flex-flow: row;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 1.5em;
+  color: var(--crimson);
 }
 
+.menu li:hover {
+  font-style: oblique;
+  color: var(--dark-gray);
+  border: 1px solid var(--crimson);
+}
+
+/*=================
+   APPLICATIONS
+==================*/
+.applications-container {
+  display: flex;
+  flex-flow: column;
+}
+.app-info {
+  display: flex;
+  flex-flow: column;
+}
+.app-info h3 strong {
+  font-family: oblique;
+  color: var(--crimson);
+  font-size: 1.5em;
+  margin-left: 20px;
+}
+.app-info h3 span {
+  background-color: var(--white);
+  padding: 5px 300px 5px 20px;
+  /* border: 1px solid gray; */
+  margin-left: 10px;
+}
+.app-buttons ul{
+  display: inline-flex;
+  list-style-type: none;
+}
+.app-buttons button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  font-family: var(--second-font);
+  background-color: var(--crimson);
+  color: var(--white);
+  border-radius: 6px;
+  margin-top: 10px;
+  box-shadow: 2px 2px black;
+  margin-bottom: 90px;
+  margin-left: 60px;
+}
+
+button:hover {
+  background: var(--dark-gray);
+  color: var(--white);
+  cursor: pointer;
+  font-style: oblique;
+}
+
+/*=================
+      FORM
+==================*/
+.form h1 {
+  font-size: 3em;
+}
+.form {
+  padding: 20px;
+  text-align: center;
+}
+label {
+  display: inline-block;
+  width: 300px;
+  margin: 20px 0px 5px;
+  text-align: left;
+  font-family: var(--second-font);
+  color: var(--crimson);
+  font-size: 2em;
+}
+input[type="text"] {
+  display: inline-block;
+  padding: 10px;
+  width: 50%;
+  border: 1px solid var(--white);
+  border-radius: 6px;
+  margin-top: 10px;
+  background: var(--dark-gray);
+  color: var(--white);
+  font-size: 1.2em;
+}
+input[type="submit"] {
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  font-family: var(--second-font);
+  background-color: var(--crimson);
+  color: var(--white);
+  border-radius: 6px;
+  margin-top: 10px;
+  box-shadow: 2px 2px black;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  margin-left: 60px;
+}
+input[type="submit"]:hover {
+  background: var(--dark-gray);
+  color: var(--white);
+  cursor: pointer;
+  font-style: oblique;
+}
 /*=================
       FOOTER
 ==================*/

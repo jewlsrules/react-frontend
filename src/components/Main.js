@@ -31,24 +31,27 @@ class Main extends React.Component {
 // =============================
 // HANDLERS/FUNCTIONS
 // =============================
+
+// since our main data is being pulled into main, this is where we'll write our functions for manipulating the data
+
   handleCreate = (createData) => {
     console.log('creating new application')
-    fetch(`${baseUrl}/applications`, {
-      body: JSON.stringify(createData),
-      method: 'POST',
+    fetch(`${baseUrl}/applications`, { //grab data from API
+      body: JSON.stringify(createData), // this is the data
+      method: 'POST', //using POST method for creating data
       headers: { // these will always be this way
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
       }
     })
-    .then(createdApp => {
-      return createdApp.json() // this is returning an error right now, not sure why.
+    .then(createdApp => { //take the createdApp data
+      return createdApp.json() // turn it into json, which is the array of applications -----> this is returning an error right now, not sure why.
     })
-    .then(jsonedApp => {
+    .then(jsonedApp => { //this is now the createdApp that we made
       this.props.handleView('home')
-      this.setState(prevState => {
-        prevState.applications = jsonedApp
-        return { applications: prevState.applications }
+      this.setState(prevState => { //prevState creates a copy of the data we had
+        prevState.applications = jsonedApp //prevState.applications is the data before it was updated, taking it and setting it to the whole array of applications (jsonedApp)
+        return { applications: prevState.applications } //returns all the applications plus the one just created
       })
     })
     .catch(err=>console.log(err))
@@ -65,8 +68,8 @@ class Main extends React.Component {
       }
     })
     .then(updatedPost => {
-      this.props.handleView('home')
-      this.fetchPosts()
+      this.props.handleView('home') // switch back to home view after editing an app
+      this.fetchPosts()//make another AJAX call to automatically load the app
     })
     .catch(err=>console.log(err))
   } // end of handle update
@@ -111,13 +114,15 @@ class Main extends React.Component {
     console.log(this.state.applications);
     return (
       <div className="main">
-      <h3>Main.js Component {this.props.view.pageTitle}</h3>
+      {/*<h3>Main.js Component {this.props.view.pageTitle}</h3>*/}
       {
         this.props.view.page === 'home'
-        ? this.state.applications.map((appData) => (
+        ? this.state.applications.map((data) => (
           <Applications
-            key={appData.id}
-            data={appData}
+            // key={appData.id}
+            key={data.id}
+            // data={appData}
+            data={data}
             handleView={this.props.handleView}
             handleDelete={this.handleDelete}
           />
@@ -125,7 +130,7 @@ class Main extends React.Component {
         : <Form
           handleCreate={this.handleCreate}
           handleUpdate={this.handleUpdate}
-          formInputs={this.props.formInputs}
+          formInput={this.props.formInput}
           view={this.props.view}
         />
       }
