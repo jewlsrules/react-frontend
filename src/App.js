@@ -37,6 +37,7 @@ class App extends React.Component {
     console.log('handling')
     let pageTitle = ''
     let formInput = {
+      id: '',
       user_id: '',
       company_name: '',
       job_title: '',
@@ -55,6 +56,7 @@ class App extends React.Component {
       case 'editApplication':
         pageTitle = 'Update Application'
         formInput = {
+          id: data.id,
           user_id: data.user_id,
           company_name: data.company_name,
           job_title: data.job_title,
