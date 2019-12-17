@@ -33,7 +33,7 @@ class Applications extends React.Component {
 
               <h3><strong>Job Link:</strong><span> {this.props.data.job_link}</span></h3>
 
-              <h3><strong>Status:</strong><span> {this.props.data.appStatus}</span></h3>
+              <h3><strong>Status:</strong><span> {this.props.data.app_status}</span></h3>
           </div>
 
           <div className="app-buttons">
