@@ -28,6 +28,7 @@ body {
   padding: 10px 10px 10px 10px;
   /* position: relative; */
   min-height: 97vh;
+  font-family: var(--second-font);
 }
 
 /*=================
@@ -47,7 +48,7 @@ body {
 .page-container {
   position: relative;
   display: flex;
-  /* background-image: url('https://imgur.com/5Vs6vaD'); */
+  background-image: url(./images/desk.jpg);
   /* background-size: auto 100;
   background-repeat: no-repeat;
   background-position: center; */
@@ -79,6 +80,49 @@ body {
 .menu li {
   justify-content: space-around;
   flex-flow: row;
+}
+
+/*=================
+   APPLICATIONS
+==================*/
+.applications-container {
+  display: flex;
+  flex-flow: column;
+}
+.app-info {
+  display: flex;
+  flex-flow: column;
+}
+.app-info h3 strong {
+  font-family: oblique;
+  color: var(--crimson);
+  font-size: 1.5em;
+  margin-left: 20px;
+}
+.app-info h3 span {
+  background-color: var(--white);
+  padding: 5px 300px 5px 20px;
+  border: 1px solid gray;
+  margin-left: 10px;
+}
+.app-buttons ul{
+  display: inline-flex;
+  list-style-type: none;
+}
+.app-buttons button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  font-family: var(--second-font);
+  background-color: var(--crimson);
+  color: var(--white);
+  border-radius: 6px;
+  margin-top: 10px;
+  box-shadow: 2px 2px black;
+  margin-bottom: 90px;
+  margin-left: 60px;
 }
 
 /*=================

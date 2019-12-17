@@ -114,7 +114,7 @@ class Main extends React.Component {
     console.log(this.state.applications);
     return (
       <div className="main">
-      <h3>Main.js Component {this.props.view.pageTitle}</h3>
+      {/*<h3>Main.js Component {this.props.view.pageTitle}</h3>*/}
       {
         this.props.view.page === 'home'
         ? this.state.applications.map((data) => (
@@ -130,7 +130,7 @@ class Main extends React.Component {
         : <Form
           handleCreate={this.handleCreate}
           handleUpdate={this.handleUpdate}
-          formInputs={this.props.formInputs}
+          formInput={this.props.formInput}
           view={this.props.view}
         />
       }

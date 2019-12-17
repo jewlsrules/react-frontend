@@ -53,10 +53,10 @@ class App extends React.Component {
       case 'editApplication':
         pageTitle = 'Update Application'
         formInput = {
-          companyName: data.companyName,
-          jobTitle: data.companyTitle,
-          jobLink: data.jobLink,
-          appStatus: data.appStatus
+          company_name: data.company_name,
+          job_title: data.company_title,
+          job_link: data.job_link,
+          app_status: data.app_status
         }
         break
       default:
