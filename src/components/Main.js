@@ -13,7 +13,7 @@ let baseUrl = '';
 // if (process.env.NODE_ENV === 'development') {
 //   baseUrl = 'localhost:8888/applications'
 // } else {
-  baseUrl = 'https://damp-badlands-51088.herokuapp.com/api/' // heroku code will go in the else statement
+  baseUrl = 'https://damp-badlands-51088.herokuapp.com/api' // heroku code will go in the else statement
 // }
 
 // =============================
@@ -58,7 +58,7 @@ class Main extends React.Component {
   } //end of handleCreate
 
   handleUpdate = (updateData) => {
-    console.log('updating application')
+    console.log('updating application ', updateData)
     fetch(`${baseUrl}/applications/${updateData.id}`, {
       body: JSON.stringify(updateData),
       method: 'PUT',
@@ -75,7 +75,7 @@ class Main extends React.Component {
   } // end of handle update
 
   handleDelete = (id) => {
-    console.log('Deleting Application')
+    console.log('Deleting Application id: ', id)
     fetch(`${baseUrl}/applications/${id}`, {
       method: 'DELETE',
       headers: {
@@ -111,7 +111,7 @@ class Main extends React.Component {
   // RENDER
   // ==============
   render () {
-    console.log(this.state.applications);
+    console.log('this.state.applications: ',this.state.applications);
     return (
       <div className="main">
       {/*<h3>Main.js Component {this.props.view.pageTitle}</h3>*/}

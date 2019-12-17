@@ -37,9 +37,12 @@ class App extends React.Component {
     console.log('handling')
     let pageTitle = ''
     let formInput = {
-      name: '',
-      image: '',
-      body: '',
+      id: '',
+      user_id: '',
+      company_name: '',
+      job_title: '',
+      job_link: '',
+      app_status: '',
       id: null
     }
     //show the page title depending on the page:
@@ -53,8 +56,10 @@ class App extends React.Component {
       case 'editApplication':
         pageTitle = 'Update Application'
         formInput = {
+          id: data.id,
+          user_id: data.user_id,
           company_name: data.company_name,
-          job_title: data.company_title,
+          job_title: data.job_title,
           job_link: data.job_link,
           app_status: data.app_status
         }
