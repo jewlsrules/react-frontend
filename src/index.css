@@ -47,7 +47,7 @@ h1 {
 .page-container {
   position: relative;
   display: flex;
-  background-image: url(./images/desk.png);
+  /* background-image: url(./images/desk.png); */
   /* background-size: auto 100;
   background-repeat: no-repeat;
   background-position: center; */
