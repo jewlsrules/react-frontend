@@ -73,7 +73,15 @@ componentDidMount() {
           <input type='text' value={this.state.job_link} id='job_link' onChange={this.handleChange}/>
           <br />
           <label htmlFor='app_status'>Status: </label>
-          <input type='text' value={this.state.app_status} id='app_status' onChange={this.handleChange}/>
+          <select value={this.state.app_status} id='app_status' onChange={this.handleChange}>
+            <option value='Applied'>Applied</option>
+            <option value='Phone Screen'>Phone Screen</option>
+            <option value='Take-Home Test'>Take Home Test</option>
+            <option value='In Person Interview'>In Person</option>
+            <option value='Offer'>Offer</option>
+            <option value='Accepted'>Accepted</option>
+            <option value='Rejected'>Rejected</option>
+          </select>
           <br />
           <input type="submit" value="Submit"/>
         </form>
@@ -83,6 +91,10 @@ componentDidMount() {
 
 
 } //  closing for Form component
+
+// if my select form doesn't work, here's working code:
+// <input type='text' value={this.state.app_status} id='app_status' onChange={this.handleChange}/>
+// <br />
 
 // =============================
 // EXPORT
