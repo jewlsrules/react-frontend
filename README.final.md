@@ -31,6 +31,8 @@ Check out the live app here: [App-Tracker](https://react-app-tracker.herokuapp.c
 ## Approach Taken
 We wanted to make sure that we could deploy the app correctly so we focused on that main goal initially. Jewls set up the basic backend with a GET route (for testing purposes) and created a Github repo, while I set up the Heroku account with PostgresSQL. After making sure we had an API and were able to fetch the data we finished up with some styling.
 
+![](https://i.imgur.com/aRK8QjC.png)
+
 ### Setbacks
 Heroku deployment was the most difficult part. It took us awhile to figure out that we needed two Heroku setups and two repos. This way there could be a frontend setup for React, and a backend setup with PHP. This process took up the bulk of our development time. 
 
