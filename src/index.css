@@ -190,9 +190,12 @@ button:hover {
 .form {
   padding: 20px;
   text-align: center;
-  background-color: white;
+  background-color:rgba(255,255,255,0.75);
   margin: 2em;
+  border: 1px solid gray;
+  box-shadow: 5px 5px 5px gray;
 }
+
 label {
   display: inline-block;
   width: 300px;
